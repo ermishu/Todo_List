@@ -1,55 +1,123 @@
 <html>
 
   <head>
+
     <title><%= title %></title>
+
+    <!-- <link rel="stylesheet" href="/css/home.css" /> -->
+
   </head>
 
   <body>
-    <header>ToDo App</header>
 
-    <div id="form">
-      <form action="/submit" method="post">
-        <input
-          type="text"
-          name="description"
-          placeholder="What do you need to do?"
-          required
-        />
+    <!-- Creating header -->
+    <header class="header">ToDo App</header>
 
-        <div id="categories">
+    <!-- Added the form for taking inputs -->
+
+    <form action="/submit" method="post" id="add-task-list">
+
+      <!-- Take input from user (Description) -->
+        <div class="desp">
+          <label for="description">Description:</label>
+          <textarea type="text" name="description" placeholder="What do you need to do?" rows="1" required></textarea>
+        </div>
+
+        <!-- Take input for user (Categories) -->
+        <div class="categories">
+
+          <!-- Creating the DropDown List -->
           <div class="dropDown">
+
             <label for="Category">Choose a Category:</label>
+
             <select id="category" name="category" required>
+
+              <option>Choose a category</option>
               <option value="Personal">Personal</option>
               <option value="Work">Work</option>
               <option value="School">School</option>
               <option value="Other">Other</option>
+
             </select>
+
           </div>
 
+          <!-- take Due Date Input -->
           <div class="date">
             <label for="Due-Date">Due Date</label>
-            <input type="date" id="due-date" name="duedate" required/>
+            <input type="date" id="due-date" name="duedate" required />
           </div>
+
         </div>
+
+        <!-- Adding button for Add list and and Delete  -->
+
         <div id="button">
-          <button type="submit">Add Task</button>
+          <!-- Add Task Button -->
+          <button type="submit" form="add-task-list">
+            Add Task
+          </button>
+
+          <!-- Delete task Button -->
+          <button type="submit" form="delete-task-list">
+            Delete Task
+          </button>
+
         </div>
+
+      </form>
+
+
+      <!-- Adding Task List -->
+
+      <form action="/delete" method="post" id="delete-task-list">
+
+        <ul class="task-list">
+
+          <% for(let el  of listArray){%>
+
+            <li class="task-list-item">
+
+              <div class="checkbox-container">
+                <input id="checkbox" type="checkbox"name="id" value="<%=el.id%>">
+              </div>
+
+              <div class="display-task">
+
+                <p class="desc">
+                  <%=el.description%>
+                </p>
+                <p class="date">
+                  <%= el.duedate %> 
+                </p>
+
+              </div>
+
+              <div class="display-category">
+                <p class="category">
+                  <%=el.category%>
+                </p>
+              </div>
+
+            </li>
+          <%}%>
+
+        </ul>
+
       </form>
       <div>
-        <%if(listArray.length!==0){%>
-           <%for (let el of listArray){%>
-
-        <div class="desc">
-          <%=el.description%>abc
+        <%if(listArray.length!==0){%> <%for (let el of listArray){%>
+        <div id="tasks">
+          <div class="detail">
+            <div class="desc"><%=el.description%></div>
+            <div class="date"><%= el.duedate %></div>
+          </div>
+          <div class="btn">
+            <div class="category"><%=el.category%></div>
+            <a href="/delete/<%=el._id%>"><button>Delete Task</button></a>
+          </div>
         </div>
-        <div class="ctaegory">
-          <%=el.category%>
-        </div>
-        <div class="date">
-          <%= el.duedate %>
-        </div>
-        <a href="/delete/<%=el._id%>"><button>Delete Task</button></a>
         <%}%> <%}%>
       </div>
     </div>

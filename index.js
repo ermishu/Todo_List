@@ -4,11 +4,14 @@ const port = 3000;
 // import the database mongoose from config 
 const db = require('./config/mongoose');
 
-
 const app = express();
+
 app.use(express.urlencoded())
+
 app.set('view engine','ejs');
 app.set('views','./views')
+
+app.use(express.static('assets'))
 
 app.use('/',require('./routes'))
 
