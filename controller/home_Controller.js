@@ -43,4 +43,19 @@ module.exports.submit =  (req,res)=>{
     } catch (error) {
         console.log('Error Creating List',error)
     }
+}  
+
+module.exports.delete = async (req, res)=>{
+    console.log('LINK : /delete',req.params)
+    try {
+        const {id}= req.params
+        await List.findByIdAndDelete(id)
+        let listArray = await List.find({})
+        return res.render('home',{
+            title : 'TO DO App',
+            listArray
+        })
+    } catch (error) {
+        
+    }
 }

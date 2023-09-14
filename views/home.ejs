@@ -33,7 +33,6 @@
         </div>
         <div id="button">
           <button type="submit">Add Task</button>
-          <!-- <a ><button>Delete task</button></a> -->
         </div>
       </form>
 
@@ -45,6 +44,7 @@
           <div class="ctaegory">
             <%=el.date%>
           </div>
+          <a href="/delete/<%=el._id%>"><button>X</button></a>
           <%}%>
         <%}%>
 
