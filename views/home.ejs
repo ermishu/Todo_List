@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <header>ToDo App</header>
+
+    <div id="form">
+      <form action="/submit" method="post">
+        <input
+          type="text"
+          name="description"
+          placeholder="What do you need to do?"
+          required
+        />
+
+        <div id="categories">
+          <div class="dropDown">
+            <label for="Category">Choose a Category:</label>
+            <select id="category" name="category">
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="School">School</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="date">
+            <label for="Due-Date">Due Date</label>
+            <input type="date" id="due-date" name="duedate" />
+          </div>
+        </div>
+        <div id="button">
+          <button type="submit">Add Task</button>
+          <!-- <a ><button>Delete task</button></a> -->
+        </div>
+      </form>
+
+      <%if(listArray.length!==0){%>
+        <%for (let el of listArray){%>
+          <div class="desc">
+            <%=el.description%>abc
+          </div>
+          <div class="ctaegory">
+            <%=el.date%>
+          </div>
+          <%}%>
+        <%}%>
+
+    </div>
+  </body>
+</html>
