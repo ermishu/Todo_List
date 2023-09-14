@@ -12,7 +12,7 @@ header{
 }
 #desc{
     margin:10px;
-    height: 10%;
+    /* height: 10%; */
     border-bottom: 1px solid black;
 }
 textarea{
@@ -29,7 +29,7 @@ label{
 }
 #categories{
     margin:10px;
-    height: 10%;
+    /* height: 10%; */
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
@@ -40,14 +40,14 @@ label{
 }
 select{
     width: 95%;
-    height: 40%;
+    /* height: 40%; */
     background: transparent;
     border: none;
     font-size: 1rem;
 }
 input[type="date"]{
     width: 95%;
-    height: 40%;
+    /* height: 40%; */
     background: transparent;
     border: none;
     font-size: 1rem;

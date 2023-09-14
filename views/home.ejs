@@ -4,7 +4,7 @@
 
     <title><%= title %></title>
 
-    <!-- <link rel="stylesheet" href="/css/home.css" /> -->
+    <link rel="stylesheet" href="/css/home.css" />
 
   </head>
 
@@ -106,20 +106,6 @@
         </ul>
 
       </form>
-      <div>
-        <%if(listArray.length!==0){%> <%for (let el of listArray){%>
-        <div id="tasks">
-          <div class="detail">
-            <div class="desc"><%=el.description%></div>
-            <div class="date"><%= el.duedate %></div>
-          </div>
-          <div class="btn">
-            <div class="category"><%=el.category%></div>
-            <a href="/delete/<%=el._id%>"><button>Delete Task</button></a>
-          </div>
-        </div>
-        <%}%> <%}%>
-      </div>
-    </div>
+
   </body>
 </html>
