@@ -4,13 +4,15 @@ module.exports.home = (req,res) => {
 
     List.find({})
         .then(listArray=>{
-            console.log('888',listArray)
             return res.render('home',{
                 title : 'To-DO App',
                 listArray
             })
         })
-        .catch(er=>{
+        .catch(err=>{
+            if(err){
+                console.log("Error in rendering home page")
+            }
         })
 
 }
@@ -37,7 +39,10 @@ module.exports.submit =  (req,res)=>{
                 listArray
             })
         })
-        .catch(er=>{
+        .catch(err=>{
+            if(err){
+                console.log("Error in rendering home page")
+            }
         })
         return res.redirect('back')
     } catch (error) {
@@ -55,7 +60,7 @@ module.exports.delete = async (req, res)=>{
             title : 'TO DO App',
             listArray
         })
-    } catch (error) {
-        
+    } catch (err) {
+        console.log('Error Deleting List',err)
     }
 }

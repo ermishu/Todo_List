@@ -1,4 +1,5 @@
 <html>
+
   <head>
     <title><%= title %></title>
   </head>
@@ -18,7 +19,7 @@
         <div id="categories">
           <div class="dropDown">
             <label for="Category">Choose a Category:</label>
-            <select id="category" name="category">
+            <select id="category" name="category" required>
               <option value="Personal">Personal</option>
               <option value="Work">Work</option>
               <option value="School">School</option>
@@ -28,26 +29,29 @@
 
           <div class="date">
             <label for="Due-Date">Due Date</label>
-            <input type="date" id="due-date" name="duedate" />
+            <input type="date" id="due-date" name="duedate" required/>
           </div>
         </div>
         <div id="button">
           <button type="submit">Add Task</button>
         </div>
       </form>
+      <div>
+        <%if(listArray.length!==0){%>
+           <%for (let el of listArray){%>
 
-      <%if(listArray.length!==0){%>
-        <%for (let el of listArray){%>
-          <div class="desc">
-            <%=el.description%>abc
-          </div>
-          <div class="ctaegory">
-            <%=el.date%>
-          </div>
-          <a href="/delete/<%=el._id%>"><button>X</button></a>
-          <%}%>
-        <%}%>
-
+        <div class="desc">
+          <%=el.description%>abc
+        </div>
+        <div class="ctaegory">
+          <%=el.category%>
+        </div>
+        <div class="date">
+          <%= el.duedate %>
+        </div>
+        <a href="/delete/<%=el._id%>"><button>Delete Task</button></a>
+        <%}%> <%}%>
+      </div>
     </div>
   </body>
 </html>

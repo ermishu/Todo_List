@@ -8,7 +8,7 @@ const listSchema = new mongoose.Schema({
         type :String,
         enum : ['Personal', 'Work','School','Other']
     },
-    date : {
+    duedate : {
         type : String
     }
 })
