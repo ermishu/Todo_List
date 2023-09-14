@@ -1,80 +1,123 @@
-body{
-    margin:0;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: white;
-    padding: 10px;
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  background-color: white;
+  padding: 10px;
 }
-header{
-    font-size: 4rem;
-    text-align: center;
-    font-weight: bold;
-    border-bottom: 1px solid black;
+header {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid gray;
+  color: rgb(108, 106, 106);
 }
-#desc{
-    margin:10px;
-    /* height: 10%; */
-    border-bottom: 1px solid black;
+#add-task-list {
+  border-bottom: 1px solid gray;
 }
-textarea{
-    width: 100%;
-    border: none;
-    font-size: 1rem;
-    background: transparent;
+
+.desp {
+  padding: 10px;
+  height: 10%;
+  border-bottom: 1px solid gray;
 }
-label{
-    font-size: 1.7rem;
-    font-weight: bold;
-    font-style: italic;
-    display: block;
+
+textarea {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  background: transparent;
 }
-#categories{
-    margin:10px;
-    /* height: 10%; */
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
+label {
+  font-size: 1.7rem;
+  font-weight: bold;
+  font-style: italic;
+  display: block;
+  color: rgb(108, 106, 106);
 }
-#categories div{
-    width: 50%;
-    border: 1px solid black;
+
+.categories {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
 }
-select{
-    width: 95%;
-    /* height: 40%; */
-    background: transparent;
-    border: none;
-    font-size: 1rem;
+.categories div {
+  width: 50%;
 }
-input[type="date"]{
-    width: 95%;
-    /* height: 40%; */
-    background: transparent;
-    border: none;
-    font-size: 1rem;
+.date {
+  border-left: 1px solid gray;
 }
-#button{
-    text-align: center;
-    margin:4px;
+select {
+  width: 95%;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
 }
-button[type="submit"]{
-    background-color: gray;
-    height:7%;
-    width: 20%;
-    font-size: 1.4rem;
-    color: white;
-    border:none;
+input[type="date"] {
+  width: 95%;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
 }
-#tasks{
-    border-top: 1px solid black;
-    padding: 2px;
-    display: flex;
-    justify-content: space-between;
-    height: 10%;
+
+#button {
+  text-align: center;
+  margin: 4px;
 }
-.desc{
-    font-size: 1.7rem;
-    font-weight: bold;
+button[type="submit"] {
+  height: 8%;
+  width: 20%;
+  font-size: 1.4rem;
+  color: white;
+  border: none;
 }
-.category{
-    background-color: blueviolet;
+button[form="add-task-list"] {
+  background-color: rgb(72, 72, 72);
+}
+button[form="delete-task-list"] {
+  background-color: rgb(150, 8, 8);
+}
+ul {
+  padding: 0;
+  align-items: center;
+}
+li {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  list-style: none;
+}
+.task-list-items {
+  width: 60%;
+  border-bottom: 1px solid gray;
+}
+.checkbox-container {
+  display: inline-block;
+}
+.display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.display-task{
+    width: 70%;
+}
+p {
+  margin: 2px;
+}
+.desc {
+  font-size: 1.7rem;
+  font-weight: bold;
+  width: 50%;
+}
+.date {
+  font-weight: bold;
+}
+.category {
+  height: 35px;
+  width: 105px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+  background-color: blueviolet;
 }
