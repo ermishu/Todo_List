@@ -5,7 +5,7 @@ module.exports.home = (req,res) => {
     List.find({})
         .then(listArray=>{
             return res.render('home',{
-                title : 'To-DO App',
+                title : 'ToDO App',
                 listArray
             })
         })
@@ -18,12 +18,6 @@ module.exports.home = (req,res) => {
 }
 
 module.exports.submit =  (req,res)=>{
-    console.log('LINK  : /submit',req.body)
-    try {
-        // destrucuring req.body 
-        const {description , date , category } = req.body
-
-        // adding to the database 
         List.create(req.body)
         .then(list=>{
             // do the task you want after list is added 
@@ -35,7 +29,7 @@ module.exports.submit =  (req,res)=>{
         List.find({})
         .then(listArray=>{
             return res.render('home',{
-                title : 'To-DO App',
+                title : 'ToDO App',
                 listArray
             })
         })
@@ -45,22 +39,17 @@ module.exports.submit =  (req,res)=>{
             }
         })
         return res.redirect('back')
-    } catch (error) {
-        console.log('Error Creating List',error)
-    }
 }  
 
-module.exports.delete = async (req, res)=>{
-    console.log('LINK : /delete',req.params)
-    try {
-        const {id}= req.params
-        await List.findByIdAndDelete(id)
-        let listArray = await List.find({})
-        return res.render('home',{
-            title : 'TO DO App',
-            listArray
+module.exports.delete = (req, res)=>{
+    console.log(req.body.id);
+
+        List.findByIdAndDelete(req.body.id)
+        .then(data=>{
+            console.log('*');
         })
-    } catch (err) {
-        console.log('Error Deleting List',err)
-    }
+        .catch(err=>{
+            console.log('Unable to delete',err);
+        })
+    return res.redirect('back');
 }
